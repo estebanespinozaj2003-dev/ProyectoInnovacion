@@ -252,3 +252,37 @@ label {
     margin: 10px;
   }
 }
+/* ===================================== */
+/* ===== SOLO IA.HTML (CHAT CENTRADO) === */
+/* ===================================== */
+
+.pagina-ia .mateia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centra horizontalmente */
+  text-align: center;
+}
+
+/* Imagen del personaje */
+.pagina-ia .personaje {
+  display: block;
+  margin: 15px auto;
+}
+
+/* Cuadro de respuesta */
+.pagina-ia #respuesta {
+  margin: 15px auto;
+}
+
+/* Input de pregunta */
+.pagina-ia #pregunta {
+  display: block;
+  margin: 10px auto;
+}
+
+/* Botón Preguntar */
+.pagina-ia button {
+  display: block;
+  margin: 10px auto;
+}
+

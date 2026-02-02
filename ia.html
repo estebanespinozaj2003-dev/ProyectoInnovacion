@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>MateIA - IA</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
-<body>
+<body class="pagina-ia">
 
-<!-- BARRA DE NAVEGACIÓN -->
+
+<!-- ===== BARRA DE NAVEGACIÓN ===== -->
 <nav class="barra-nav">
 
-  <!-- LOGO -->
   <div class="logo">
-    <a href="index.html">
+    <a href="matematica.html">
       <img src="recursos/logo.png" alt="Logo MateIA">
     </a>
     <span>MateIA</span>
   </div>
 
-  <!-- MENÚ -->
   <ul class="menu">
-    <li><a href="index.html">Inicio</a></li>
+    <li><a href="matematica.html">Inicio</a></li>
     <li><a href="temas.html">Temas</a></li>
     <li><a href="ejericios.html">Ejercicios</a></li>
     <li><a href="evaluaciones.html">Evaluaciones</a></li>
@@ -30,38 +29,65 @@
 
 </nav>
 
-
-<!-- CONTENEDOR PRINCIPAL -->
+<!-- ===== CONTENEDOR PRINCIPAL ===== -->
 <div class="contenedor-ia">
 
-  <!-- SECCIÓN MATEIA -->
+  <!-- SECCIÓN IA -->
   <section class="mateia">
     <h2>MateIA 🤖</h2>
     <p>MateIA es tu amigo inteligente. Pregúntale cualquier duda de matemática.</p>
 
-    <img src="recursos/personaje.png" width="200" alt="Personaje MateIA">
+    <img src="recursos/personaje.png" class="personaje" alt="Personaje MateIA">
 
     <div id="respuesta">
       Hola, soy MateIA. ¿Qué quieres aprender hoy?
     </div>
 
     <input type="text" id="pregunta" placeholder="Escribe tu duda aquí">
+    <br>
     <button type="button" onclick="preguntarIA()">Preguntar</button>
   </section>
 
   <!-- SECCIÓN REALIDAD VIRTUAL -->
   <aside class="realidad-virtual">
     <h3 class="titulo-vr">🌐 Explora Matemáticas en Realidad Virtual</h3>
+
     <p>
-      Escanea el código QR y accede a una experiencia interactiva en Realidad Virtual
-      para aprender matemáticas de forma inmersiva.
+      Escanea el código QR y accede a una experiencia interactiva
+      para aprender matemáticas de forma divertida e inmersiva.
     </p>
 
     <img 
-      src="recursos/qr.jpeg" 
-      alt="Código QR Realidad Virtual" 
+      src="recursos/qr.jpeg"
+      alt="Código QR Realidad Virtual"
       class="qr-vr"
     >
+
+    <!-- LINK PARA COMPUTADORA -->
+    <p class="link-vr">
+      💻 ¿Usas computadora?<br>
+      Accede aquí:
+      <a href="https://edu.delightex.com/KHW-CQY" target="_blank">
+        https://edu.delightex.com/KHW-CQY
+      </a>
+    </p>
+
+    <!-- DESCARGA APP -->
+    <div class="descarga-app">
+      <h4>📱 Vive una mejor experiencia</h4>
+      <p>
+        Para aprender matemáticas de una forma más divertida,
+        descarga la aplicación <strong>Delightex</strong> y explora
+        los contenidos en un entorno de <strong>Realidad Virtual</strong>.
+      </p>
+
+      <img
+        src="recursos/delightex.png"
+        alt="Aplicación Delightex"
+        class="img-app"
+      >
+    </div>
+
   </aside>
 
 </div>
