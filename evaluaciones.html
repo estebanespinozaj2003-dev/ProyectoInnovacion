@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MateIA - Evaluaciones</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<!-- BARRA DE NAVEGACIÓN -->
+<nav class="barra-nav">
+
+  <!-- LOGO -->
+  <div class="logo">
+    <a href="matematica.html">
+      <img src="recursos/logo.png" alt="Logo MateIA">
+    </a>
+    <span>MateIA</span>
+  </div>
+
+  <!-- MENÚ -->
+  <ul class="menu">
+    <li><a href="matematica.html">Inicio</a></li>
+    <li><a href="temas.html">Temas</a></li>
+    <li><a href="ejericios.html">Ejercicios</a></li>
+    <li><a href="evaluaciones.html">Evaluaciones</a></li>
+    <li><a href="retroalimentacion.html">Retroalimentación</a></li>
+    <li><a href="ia.html">MateIA 🤖</a></li>
+  </ul>
+
+</nav>
+
+
+<h2>Evaluación General de Matemática</h2>
+
+<div id="evaluacion"></div>
+
+<button onclick="corregir()">Terminar Evaluación</button>
+<button onclick="reiniciar()" id="btnReiniciar" style="display:none">Intentar otra prueba</button>
+<button onclick="descargarPDF()" id="btnDescargar" style="display:none">Descargar en PDF</button>
+
+<h3 id="resultado"></h3>
+
+<script>
+const banco = [
+  {p:"¿Cuál es un número natural?", o:["-3","7","1/2"], r:1},
+  {p:"5 + 3 =", o:["7","8","9"], r:1},
+  {p:"10 - 4 =", o:["5","6","7"], r:1},
+  {p:"4 x 3 =", o:["7","12","14"], r:1},
+  {p:"12 ÷ 3 =", o:["3","4","5"], r:1},
+  {p:"¿Cuál es fracción?", o:["5","2/3","9"], r:1},
+  {p:"8 + 6 =", o:["13","14","15"], r:1},
+  {p:"9 - 5 =", o:["3","4","5"], r:1},
+  {p:"6 x 2 =", o:["10","12","14"], r:1},
+  {p:"15 ÷ 5 =", o:["2","3","4"], r:1},
+  {p:"2 + 9 =", o:["10","11","12"], r:1},
+  {p:"7 x 3 =", o:["20","21","22"], r:1},
+  {p:"18 ÷ 6 =", o:["2","3","4"], r:1},
+  {p:"10 - 7 =", o:["2","3","4"], r:1},
+  {p:"3 + 5 =", o:["7","8","9"], r:1},
+  {p:"14 - 6 =", o:["7","8","9"], r:1},
+  {p:"9 x 2 =", o:["16","18","20"], r:1},
+  {p:"20 ÷ 4 =", o:["4","5","6"], r:1},
+  {p:"11 + 7 =", o:["17","18","19"], r:1},
+  {p:"13 - 5 =", o:["7","8","9"], r:1},
+  {p:"4 + 9 =", o:["12","13","14"], r:1},
+  {p:"6 + 8 =", o:["13","14","15"], r:1},
+  {p:"15 - 9 =", o:["5","6","7"], r:1},
+  {p:"8 x 4 =", o:["30","32","34"], r:1},
+  {p:"24 ÷ 6 =", o:["3","4","5"], r:1},
+  {p:"16 + 3 =", o:["18","19","20"], r:1},
+  {p:"18 - 7 =", o:["10","11","12"], r:1},
+  {p:"5 x 5 =", o:["20","25","30"], r:1},
+  {p:"21 ÷ 7 =", o:["2","3","4"], r:1},
+  {p:"9 + 8 =", o:["16","17","18"], r:1}
+];
+
+let seleccion = [];
+let respuestasUsuario = [];
+
+function mezclar(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+function cargarEvaluacion() {
+  seleccion = mezclar([...banco]).slice(0,10);
+  respuestasUsuario = [];
+  let html = "";
+  seleccion.forEach((q,i)=>{
+    html += `<div class="ejercicio"><p>${i+1}. ${q.p}</p>`;
+    q.o.forEach((op,j)=>{
+      html += `
+        <label>
+          <input type="radio" name="p${i}" value="${j}">
+          ${op}
+        </label><br>`;
+    });
+    html += `</div>`;
+  });
+  document.getElementById("evaluacion").innerHTML = html;
+  document.getElementById("resultado").innerHTML = "";
+  document.getElementById("btnDescargar").style.display = "none";
+  document.getElementById("btnReiniciar").style.display = "none";
+}
+
+function corregir(){
+  let puntos = 0;
+  respuestasUsuario = [];
+
+  seleccion.forEach((q,i)=>{
+    let marcada = document.querySelector(`input[name="p${i}"]:checked`);
+    let val = marcada ? parseInt(marcada.value) : -1;
+    respuestasUsuario.push(val);
+    if(val === q.r) puntos++;
+  });
+
+  document.getElementById("resultado").innerHTML =
+    "Tu puntaje es: " + puntos + " / 10";
+
+  document.getElementById("btnDescargar").style.display = "inline-block";
+  document.getElementById("btnReiniciar").style.display = "inline-block";
+}
+
+function reiniciar(){
+  cargarEvaluacion();
+}
+
+function descargarPDF(){
+  const { jsPDF } = window.jspdf;
+  let doc = new jsPDF();
+  let y = 10;
+  doc.text("Evaluación MateIA", 10, y); y+=10;
+
+  seleccion.forEach((q,i)=>{
+    doc.text((i+1)+". "+q.p, 10, y); y+=7;
+    q.o.forEach((op,j)=>{
+      doc.text("   "+(j+1)+") "+op, 10, y); y+=6;
+    });
+    let resp = respuestasUsuario[i]>=0 ? q.o[respuestasUsuario[i]] : "No respondió";
+    doc.text("Respuesta estudiante: "+resp, 10, y); y+=6;
+    doc.text("Respuesta correcta: "+q.o[q.r], 10, y); y+=10;
+    if(y>270){ doc.addPage(); y=10;}
+  });
+
+  doc.text(document.getElementById("resultado").innerText, 10, y+5);
+  doc.save("Evaluacion_MateIA.pdf");
+}
+
+cargarEvaluacion();
+</script>
+
+</body>
+</html>

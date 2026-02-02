@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MateIA - IA</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<!-- BARRA DE NAVEGACIÓN -->
+<nav class="barra-nav">
+
+  <!-- LOGO -->
+  <div class="logo">
+    <a href="matematica.html">
+      <img src="recursos/logo.png" alt="Logo MateIA">
+    </a>
+    <span>MateIA</span>
+  </div>
+
+  <!-- MENÚ -->
+  <ul class="menu">
+    <li><a href="matematica.html">Inicio</a></li>
+    <li><a href="temas.html">Temas</a></li>
+    <li><a href="ejericios.html">Ejercicios</a></li>
+    <li><a href="evaluaciones.html">Evaluaciones</a></li>
+    <li><a href="retroalimentacion.html">Retroalimentación</a></li>
+    <li><a href="ia.html">MateIA 🤖</a></li>
+  </ul>
+
+</nav>
+
+
+<!-- CONTENEDOR PRINCIPAL -->
+<div class="contenedor-ia">
+
+  <!-- SECCIÓN MATEIA -->
+  <section class="mateia">
+    <h2>MateIA 🤖</h2>
+    <p>MateIA es tu amigo inteligente. Pregúntale cualquier duda de matemática.</p>
+
+    <img src="recursos/personaje.png" width="200" alt="Personaje MateIA">
+
+    <div id="respuesta">
+      Hola, soy MateIA. ¿Qué quieres aprender hoy?
+    </div>
+
+    <input type="text" id="pregunta" placeholder="Escribe tu duda aquí">
+    <button type="button" onclick="preguntarIA()">Preguntar</button>
+  </section>
+
+  <!-- SECCIÓN REALIDAD VIRTUAL -->
+  <aside class="realidad-virtual">
+    <h3 class="titulo-vr">🌐 Explora Matemáticas en Realidad Virtual</h3>
+    <p>
+      Escanea el código QR y accede a una experiencia interactiva en Realidad Virtual
+      para aprender matemáticas de forma inmersiva.
+    </p>
+
+    <img 
+      src="recursos/qr.jpeg" 
+      alt="Código QR Realidad Virtual" 
+      class="qr-vr"
+    >
+  </aside>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

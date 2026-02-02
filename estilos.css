@@ -1,0 +1,254 @@
+/* ===== ESTILOS GENERALES ===== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(
+    180deg,
+    #fdf6ec 0%,
+    #f1f8f4 50%,
+    #e8f5e9 100%
+  );
+  color: #333;
+}
+
+/* ===== BARRA DE NAVEGACIÓN CON LOGO ===== */
+.barra-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #4caf50;
+  padding: 10px 20px;
+}
+
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  max-height: 45px;   /* tamaño controlado */
+  width: auto;        /* mantiene proporción */
+}
+
+.logo span {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* MENÚ */
+.menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0 15px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* ===== CONTENIDO ===== */
+h1, h2, h3, h4 {
+  color: #2e7d32;
+  text-align: center;
+}
+
+p, li {
+  font-size: 18px;
+}
+
+section,
+body > h1,
+body > h2,
+body > p,
+body > ul,
+body > ol {
+  padding: 20px;
+}
+
+/* ===== LISTAS ===== */
+ul, ol {
+  max-width: 700px;
+  margin: auto;
+}
+
+/* ===== CAMPOS Y BOTONES ===== */
+input[type="text"],
+input[type="number"] {
+  padding: 10px;
+  width: 300px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 15px;
+  background: #ff9800;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #fb8c00;
+}
+
+/* ===== IA ===== */
+.ia-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.personaje {
+  width: 200px;
+  animation: saltar 2s infinite;
+}
+
+@keyframes saltar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.burbuja,
+#respuesta {
+  background: #e1f5fe;
+  padding: 15px;
+  border-radius: 15px;
+  width: 60%;
+  margin: auto;
+  margin-top: 10px;
+  font-size: 18px;
+  border: 2px solid #81d4fa;
+  min-height: 60px;
+  white-space: pre-line;
+}
+
+/* ===== FORMULARIOS ===== */
+label {
+  display: block;
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+/* ===== EJERCICIOS ===== */
+.bloque {
+  background: #ffffff;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 12px;
+  max-width: 800px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ejercicio {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.ejercicio img {
+  width: 150px;
+  max-width: 100%;
+  margin: 10px auto;
+  display: block;
+}
+
+.ejercicio p {
+  margin: 8px 0;
+}
+
+/* ===== TEMAS ===== */
+.tema {
+  background: #ffffff;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 800px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tema h3 {
+  margin-top: 0;
+}
+
+/* ===== SECCIÓN IA + REALIDAD VIRTUAL ===== */
+.contenedor-ia {
+  display: flex;
+  gap: 40px;
+  padding: 30px;
+  align-items: flex-start;
+}
+
+.mateia {
+  flex: 2;
+}
+
+.realidad-virtual {
+  flex: 1;
+  background-color: #f5f9f7;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.titulo-vr {
+  color: #2e7d32;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.titulo-vr:hover {
+  color: #1b5e20;
+  transform: scale(1.05);
+}
+
+.qr-vr {
+  width: 180px;
+  margin-top: 15px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+  .barra-nav {
+    flex-direction: column;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 90%;
+  }
+
+  .burbuja,
+  #respuesta {
+    width: 90%;
+  }
+
+  .bloque,
+  .tema {
+    margin: 10px;
+  }
+}

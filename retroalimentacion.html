@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MateIA - Retroalimentación</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    /* Retroalimentación específica */
+    .tarjeta {
+      background: #e8f5e9;
+      border: 2px solid #4caf50;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .tarjeta:hover {
+      transform: scale(1.03);
+    }
+
+    .tarjeta h3 {
+      color: #2e7d32;
+      margin-top: 0;
+    }
+
+    .tarjeta p, .tarjeta ul li {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .oculto {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .icono {
+      font-size: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    button {
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #fb8c00;
+    }
+  </style>
+</head>
+<body>
+
+<!-- BARRA DE NAVEGACIÓN -->
+<nav class="barra-nav">
+
+  <!-- LOGO -->
+  <div class="logo">
+    <a href="matematica.html">
+      <img src="recursos/logo.png" alt="Logo MateIA">
+    </a>
+    <span>MateIA</span>
+  </div>
+
+  <!-- MENÚ -->
+  <ul class="menu">
+    <li><a href="matematica.html">Inicio</a></li>
+    <li><a href="temas.html">Temas</a></li>
+    <li><a href="ejericios.html">Ejercicios</a></li>
+    <li><a href="evaluaciones.html">Evaluaciones</a></li>
+    <li><a href="retroalimentacion.html">Retroalimentación</a></li>
+    <li><a href="ia.html">MateIA 🤖</a></li>
+  </ul>
+
+</nav>
+
+
+<h2>Retroalimentación – MateIA</h2>
+
+<!-- Tarjetas de retroalimentación por tema -->
+<div class="tarjeta" onclick="toggleInfo('tema1')">
+  <span class="icono">🔢</span>
+  <strong>Tema 1: Números Naturales</strong>
+  <div id="tema1" class="oculto">
+    <p>Son los números que usamos para contar objetos, personas y cosas: 1, 2, 3, 4, 5…</p>
+    <p>Ejemplos:</p>
+    <ul>
+      <li>Tengo 4 cuadernos</li>
+      <li>Hay 20 estudiantes</li>
+      <li>Compré 5 frutas</li>
+    </ul>
+    <p>Objetivo: Reconocer, leer y escribir números naturales correctamente.</p>
+    <p>Consejo: Escribe números que veas a tu alrededor para practicarlos.</p>
+  </div>
+</div>
+
+<div class="tarjeta" onclick="toggleInfo('tema2')">
+  <span class="icono">➕</span>
+  <strong>Tema 2: Sumas</strong>
+  <div id="tema2" class="oculto">
+    <p>La suma consiste en juntar cantidades.</p>
+    <p>Ejemplos:</p>
+    <ul>
+      <li>2 manzanas + 1 manzana = 3 manzanas</li>
+      <li>4 + 2 = 6</li>
+    </ul>
+    <p>Consejo: Practica sumas con objetos reales o dibujos para aprender más rápido.</p>
+  </div>
+</div>
+
+<div class="tarjeta" onclick="toggleInfo('tema3')">
+  <span class="icono">➖</span>
+  <strong>Tema 3: Restas</strong>
+  <div id="tema3" class="oculto">
+    <p>La resta consiste en quitar cantidades.</p>
+    <p>Ejemplos:</p>
+    <ul>
+      <li>5 galletas - 2 galletas = 3 galletas</li>
+      <li>7 - 3 = 4</li>
+    </ul>
+    <p>Consejo: Usa dibujos o tus juguetes para practicar la resta.</p>
+  </div>
+</div>
+
+<div class="tarjeta" onclick="toggleInfo('tema4')">
+  <span class="icono">✖️</span>
+  <strong>Tema 4: Multiplicación</strong>
+  <div id="tema4" class="oculto">
+    <p>Multiplicar es sumar varias veces el mismo número.</p>
+    <p>Ejemplo: 3 x 4 = 4 + 4 + 4 = 12</p>
+    <p>Consejo: Practica las tablas de multiplicar y usa objetos para visualizarla.</p>
+  </div>
+</div>
+
+<div class="tarjeta" onclick="toggleInfo('tema5')">
+  <span class="icono">➗</span>
+  <strong>Tema 5: División</strong>
+  <div id="tema5" class="oculto">
+    <p>Dividir es repartir en partes iguales.</p>
+    <p>Ejemplo: 12 ÷ 3 = 4</p>
+    <p>Consejo: Puedes usar dibujos de pasteles, frutas o bloques para practicar.</p>
+  </div>
+</div>
+
+<div class="tarjeta" onclick="toggleInfo('tema6')">
+  <span class="icono">🥧</span>
+  <strong>Tema 6: Fracciones básicas</strong>
+  <div id="tema6" class="oculto">
+    <p>Una fracción es una parte de un todo.</p>
+    <p>Ejemplos:</p>
+    <ul>
+      <li>1/2 es la mitad</li>
+      <li>1/4 es un cuarto</li>
+    </ul>
+    <p>Consejo: Usa dibujos, pasteles o pizzas para practicar fracciones visualmente.</p>
+  </div>
+</div>
+
+<!-- Consejos generales -->
+<div class="tarjeta" onclick="toggleInfo('aciertos')">
+  <span class="icono">🏆</span>
+  <strong>Si acertaste muchas preguntas</strong>
+  <div id="aciertos" class="oculto">
+    <p>¡Excelente! 🎉 Sigue practicando para consolidar lo aprendido.</p>
+    <p>Intenta desafíos más difíciles para seguir mejorando.</p>
+    <p>Revisa los ejercicios interactivos para no olvidar los conceptos.</p>
+  </div>
+</div>
+
+<div class="tarjeta" onclick="toggleInfo('errores')">
+  <span class="icono">❌</span>
+  <strong>Si te equivocaste</strong>
+  <div id="errores" class="oculto">
+    <ul>
+      <li>🔹 Revisa los temas donde fallaste</li>
+      <li>🔹 Lee nuevamente los ejemplos</li>
+      <li>🔹 Practica más ejercicios interactivos</li>
+      <li>🔹 Usa la IA para aclarar dudas específicas</li>
+    </ul>
+  </div>
+</div>
+
+<div class="tarjeta" onclick="toggleInfo('recordatorio')">
+  <span class="icono">💡</span>
+  <strong>Recordatorios importantes</strong>
+  <div id="recordatorio" class="oculto">
+    <ul>
+      <li>📌 Equivocarse es parte de aprender</li>
+      <li>📌 Practicar todos los días mejora tu memoria matemática</li>
+      <li>📌 Pregunta a MateIA cualquier duda, incluso de problemas complejos</li>
+      <li>📌 Combina teoría, práctica y juegos para aprender más rápido</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  function toggleInfo(id) {
+    const elem = document.getElementById(id);
+    if(elem.style.display === "none" || elem.style.display === "") {
+      elem.style.display = "block";
+    } else {
+      elem.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
